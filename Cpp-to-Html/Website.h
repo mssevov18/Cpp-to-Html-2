@@ -12,6 +12,7 @@ class Website
 {
 public:
 	Website();
+	Website(std::string path, std::string filename, std::string pagename);
 
 private:
 
