@@ -8,26 +8,43 @@
 #include "WebsiteElement.h"
 #include "InheritedWebsiteEliments.h"
 
-class Website
+class HTML
 {
 public:
-	Website();
-	Website(const std::string& path, const std::string& filename, const std::string& pagename);
+	HTML();
+	HTML(const std::string& path, const std::string& filename, const std::string& pagename);
 
 private:
 	std::string path;
 	std::string filename;
 	std::string pagename;
-
-public:
 	std::vector<std::string> elements;
 	std::vector<std::string> styleSheets;
 
 public:
 	void addElement(const std::string& element);
+	void removeElement(void);
+	void removeElement(const size_t& index);
 	void addStyleSheet(const std::string& styleSheet);
+	std::string getFilePath();
 
-
-	void makeHtmlFile();
+	void makeFile();
 };
 
+class CSS
+{
+public:
+	CSS();
+	CSS(const std::string& path, const std::string& filename);
+
+private:
+	std::string path;
+	std::string filename;
+	std::string content;
+
+public:
+	void addContent(const std::string& newContent);
+	void replaceContent(const std::string& newContent);
+
+	void makeFile();
+};

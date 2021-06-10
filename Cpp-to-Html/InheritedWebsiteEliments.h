@@ -12,6 +12,11 @@ public:
 	Paragraph();
 	Paragraph(const std::string& __class, const std::string& __style, const std::string& __content);
 
+	static Paragraph Div(const std::string& __class, const std::string& __style, const std::string& __content);
+	static Paragraph OrderedList(const std::string& __class, const std::string& __style, const std::string& __content, const std::string& __start);
+	static Paragraph UnorderedList(const std::string& __class, const std::string& __style, const std::string& __content);
+	static Paragraph ListItem(const std::string& __class, const std::string& __style, const std::string& __content, const std::string& __value);
+
 protected:
 	std::string _content;
 

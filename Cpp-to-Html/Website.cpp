@@ -7,28 +7,46 @@ using namespace std;
 
 #include "Website.h"
 
-Website::Website()
+HTML::HTML()
 {
+	path = "C:/Users/mssevov18/Documents";
+	filename = "temp";
+	pagename = "Temporary";
 }
 
-Website::Website(const std::string& path, const std::string& filename, const std::string& pagename)
+HTML::HTML(const std::string& path, const std::string& filename, const std::string& pagename)
 {
 	this->path = path;
 	this->filename = filename;
 	this->pagename = pagename;
 }
 
-void Website::addElement(const std::string& element)
+void HTML::addElement(const std::string& element)
 {
-	elements.push_back(element);
+	elements.push_back(element + "\n");
 }
 
-void Website::addStyleSheet(const std::string& styleSheet)
+void HTML::removeElement()
+{
+	elements.pop_back();
+}
+
+void HTML::removeElement(const size_t& index)
+{
+	elements.erase(elements.begin() + index);
+}
+
+void HTML::addStyleSheet(const std::string& styleSheet)
 {
 	styleSheets.push_back(styleSheet);
 }
 
-void Website::makeHtmlFile()
+std::string HTML::getFilePath()
+{
+	return std::string(path + "/" + filename + ".html");
+}
+
+void HTML::makeFile()
 {
 	fstream file;
 	file.open(path + "/" + filename + ".html", fstream::out, fstream::trunc);
@@ -52,20 +70,50 @@ void Website::makeHtmlFile()
 			<< "</SCRIPT>\n";
 		file
 			<< "</HEAD>\n"
-			<< "<BODY onload = \"JavaScript:AutoRefresh(5000);\">\n";
+			<< "<BODY onload = \"JavaScript:AutoRefresh(100);\">\n";
 
 		for (size_t i = 0; i < elements.size(); i++)
-			file << elements[i] << endl;
-
-		// Thanks to EIR
-		//for (WebsiteElement element : elements)
-		//	file << element.toString() << endl;
+			file << elements[i];
 
 		file
 			<< "\n"
 			<< "</BODY>\n"
 			<< "</HTML>\n";
 
+		file.close();
+	}
+}
+
+CSS::CSS()
+{
+	path = "C:/Users/mssevov18/Documents";
+	filename = "temp";
+}
+
+CSS::CSS(const std::string& path, const std::string& filename)
+{
+	this->path = path;
+	this->filename = filename;
+}
+
+void CSS::addContent(const std::string& newContent)
+{
+	content += newContent + "\n";
+}
+
+void CSS::replaceContent(const std::string& newContent)
+{
+	content = newContent;
+}
+
+void CSS::makeFile()
+{
+	fstream file;
+	file.open(path + "/" + filename + ".css", fstream::out, fstream::trunc);
+
+	if (file.is_open())
+	{
+		file << content;
 		file.close();
 	}
 }

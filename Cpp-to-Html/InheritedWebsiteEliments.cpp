@@ -18,6 +18,34 @@ Paragraph::Paragraph(const std::string& __class, const std::string& __style, con
 	_content = __content;
 }
 
+Paragraph Paragraph::Div(const std::string& __class, const std::string& __style, const std::string& __content)
+{
+	Paragraph out(__class, __style, __content);
+	out._tag = "div";
+	return out;
+}
+
+Paragraph Paragraph::OrderedList(const std::string& __class, const std::string& __style, const std::string& __content, const std::string& __start)
+{
+	Paragraph out(__class + "\" start=\"" + __start, __style, __content);
+	out._tag = "ol";
+	return out;
+}
+
+Paragraph Paragraph::UnorderedList(const std::string& __class, const std::string& __style, const std::string& __content)
+{
+	Paragraph out(__class, __style, __content);
+	out._tag = "ul";
+	return out;
+}
+
+Paragraph Paragraph::ListItem(const std::string& __class, const std::string& __style, const std::string& __content, const std::string& __value)
+{
+	Paragraph out(__class, __style, __content);
+	out._tag = "li";
+	return out;
+}
+
 void Paragraph::setContent(const std::string& in)
 {
 	_content = in;
@@ -63,6 +91,7 @@ std::string Link::getHref()
 {
 	return _href;
 }
+
 
 std::string Link::toString()
 {
@@ -111,6 +140,5 @@ std::string Image::getAlt()
 
 std::string Image::toString()
 {
-	return ("<" + _tag + " class=\"" + _class + "\" style=\"" + _style + "\"> </" + _tag + ">");
+	return ("<" + _tag + " src=\"" + _src + "\" alt=\"" + _alt + " class=\"" + _class + "\" style=\"" + _style + "\">");
 }
-
