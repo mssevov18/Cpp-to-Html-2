@@ -162,7 +162,7 @@ int main()
 
 			extra.removeElement();
 			extra.addElement(Paragraph("", "", to_string(r) + ", " + to_string(g) + ", " + to_string(b)).toString());
-			extra.makeFile();
+			extra.makeFile(100);
 		}
 
 		return 0;

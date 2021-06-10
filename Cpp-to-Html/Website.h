@@ -28,7 +28,7 @@ public:
 	void addStyleSheet(const std::string& styleSheet);
 	std::string getFilePath();
 
-	void makeFile();
+	void makeFile(int refreshRate = 1000);
 };
 
 class CSS

@@ -46,7 +46,7 @@ std::string HTML::getFilePath()
 	return std::string(path + "/" + filename + ".html");
 }
 
-void HTML::makeFile()
+void HTML::makeFile(int refreshRate)
 {
 	fstream file;
 	file.open(path + "/" + filename + ".html", fstream::out, fstream::trunc);
@@ -70,7 +70,7 @@ void HTML::makeFile()
 			<< "</SCRIPT>\n";
 		file
 			<< "</HEAD>\n"
-			<< "<BODY onload = \"JavaScript:AutoRefresh(100);\">\n";
+			<< "<BODY onload = \"JavaScript:AutoRefresh(" + to_string(refreshRate) +");\">\n";
 
 		for (size_t i = 0; i < elements.size(); i++)
 			file << elements[i];
