@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="WebsiteElement" Collapsed="true">
+  <Class Name="WebsiteElement">
     <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACBAAAAAAAAAAAAIhAAAAAAAAAACAAAAACDBABA=</HashCode>
       <FileName>WebsiteElement.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Paragraph" Collapsed="true">
-    <Position X="4.5" Y="1.75" Width="1.5" />
+  <Class Name="Paragraph">
+    <Position X="1.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAADAAAABAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
       <FileName>InheritedWebsiteEliments.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Link" Collapsed="true">
-    <Position X="4.5" Y="3.25" Width="1.5" />
+  <Class Name="Link">
+    <Position X="1.75" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAABAAABAAAAAAABAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
       <FileName>InheritedWebsiteEliments.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Website" Collapsed="true">
-    <Position X="7" Y="0.5" Width="1.5" />
+  <Class Name="Website">
+    <Position X="8" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAABAAAAAgBAAAAECCAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Website.h</FileName>

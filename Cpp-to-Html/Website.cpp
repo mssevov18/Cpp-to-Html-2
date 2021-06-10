@@ -11,6 +11,23 @@ Website::Website()
 {
 }
 
+Website::Website(const std::string& path, const std::string& filename, const std::string& pagename)
+{
+	this->path = path;
+	this->filename = filename;
+	this->pagename = pagename;
+}
+
+void Website::addElement(const std::string& element)
+{
+	elements.push_back(element);
+}
+
+void Website::addStyleSheet(const std::string& styleSheet)
+{
+	styleSheets.push_back(styleSheet);
+}
+
 void Website::makeHtmlFile()
 {
 	fstream file;
