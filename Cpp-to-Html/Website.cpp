@@ -62,15 +62,19 @@ void HTML::makeFile(int refreshRate)
 		for (size_t i = 0; i < styleSheets.size(); i++)
 			file << "<LINK rel = \"stylesheet\" type = \"text/css\" href = \"" << path + "/" + styleSheets[i] + ".css" << "\">\n";
 
-		file
-			<< "<SCRIPT type = \"text/JavaScript\">\n"
-			<< "	function AutoRefresh(t) {\n"
-			<< "	setTimeout(\"location.reload(true);\", t);\n"
-			<< "}\n"
-			<< "</SCRIPT>\n";
-		file
-			<< "</HEAD>\n"
-			<< "<BODY onload = \"JavaScript:AutoRefresh(" + to_string(refreshRate) +");\">\n";
+		if (refreshRate!=0)
+			file
+				<< "<SCRIPT type = \"text/JavaScript\">\n"
+				<< "	function AutoRefresh(t) {\n"
+				<< "	setTimeout(\"location.reload(true);\", t);\n"
+				<< "}\n"
+				<< "</SCRIPT>\n"
+				<< "</HEAD>\n"
+				<< "<BODY onload = \"JavaScript:AutoRefresh(" + to_string(refreshRate) +");\">\n";
+		else
+			file
+				<< "</HEAD>\n"
+				<< "<BODY>\n";
 
 		for (size_t i = 0; i < elements.size(); i++)
 			file << elements[i];
